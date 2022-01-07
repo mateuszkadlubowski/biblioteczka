@@ -1,8 +1,7 @@
 <?php
-
-$page = htmlspecialchars($_GET['page']);
+$page = (isset($_GET['page'])) ? htmlspecialchars($_GET['page']) : '';
 $pageTab = array('', '/', 'home', 'show', 'add', 'manage');
-if (in_array($page, $pageTab)) {
+if (isset($page) && in_array($page, $pageTab)) {
 	if ($page == '' || $page == '/') {
 		$content = 'home.php';
 	} else {
